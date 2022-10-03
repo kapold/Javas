@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lab Work 3</string>
+
+    <string-array name="educationList">
+        <item>Среднее общее</item>
+        <item>Среднее профессиональное</item>
+        <item>Высшее</item>
+    </string-array>
+</resources>

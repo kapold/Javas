@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LW5_OOP</string>
+    <array name="days">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </array>
+</resources>

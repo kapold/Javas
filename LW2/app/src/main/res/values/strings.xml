@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LW2</string>
+    <string name="calculatorMode_TV">Выберите режим калькулятора</string>
+    <string name="initialData_TV">Исходные данные</string>
+    <string name="fuelConsumped_TV">Израсходованно топлива</string>
+    <string name="totalDistance_TV">Пройденное расстояние</string>
+
+    <string-array name="fuel_mode">
+        <item>Рассчитать средний расход на 100 км</item>
+        <item>Рассчитать общий расход</item>
+    </string-array>
+</resources>

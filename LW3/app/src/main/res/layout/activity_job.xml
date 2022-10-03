@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/position_ED"
+        android:layout_width="344dp"
+
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+        android:hint="   Должность"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/jobStart_ED"
+
+        android:layout_width="344dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:hint="   Начало работы"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/jobEnd_ED"
+
+        android:layout_width="344dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="320dp"
+        android:ems="10"
+        android:hint="   Окончание работы"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/job_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="Место работы"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/organizationName_ED"
+        android:layout_width="344dp"
+
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="   Название организации"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/prev_btn3"
+        android:layout_width="160dp"
+        android:layout_height="54dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="572dp"
+        android:onClick="PreviousLayout_Btn"
+        android:text="Назад"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/currentProgress3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="160dp"
+
+        android:layout_height="54dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="572dp"
+        android:max="3"
+        android:progress="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/next_btn3"
+        android:layout_width="344dp"
+
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="644dp"
+        android:onClick="NextLayout_Btn"
+        android:text="Далее"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

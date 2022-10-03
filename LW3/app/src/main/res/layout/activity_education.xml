@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/next_btn2"
+        android:layout_width="344dp"
+
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="644dp"
+        android:onClick="NextLayout_Btn"
+        android:text="Далее"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/currentProgress2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progress="1"
+
+        android:layout_width="160dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="572dp"
+        android:max="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/prev_btn2"
+        android:layout_width="160dp"
+        android:layout_height="54dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="572dp"
+        android:onClick="PreviousLayout_Btn"
+        android:text="Назад"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/endDate_ET"
+
+        android:layout_width="344dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:hint="   Дата окончания"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/specialityName_ET"
+        android:layout_width="344dp"
+
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:hint="   Специальность"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/facultyName_ET"
+        android:layout_width="344dp"
+
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+        android:hint="   Факультет"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/institutionName_ET"
+        android:layout_width="344dp"
+
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="   Учебное заведение"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/education_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="Образование"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:hint="   Дата поступления"
+
+        android:id="@+id/startDate_ET"
+        android:layout_width="344dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="320dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
