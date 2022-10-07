@@ -38,8 +38,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + BUILDING_COL + " TEXT,"
                 + TIME_COL + " TEXT,"
                 + TEACHER_COL + " TEXT,"
-                + ISONETIME_COL + " INTEGER)"; // кринж, в лайте нет булиана...
+                + ISONETIME_COL + " INTEGER)";
         db.execSQL(query);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
     }
 
     public void addNewTimetable(String ttName, String ttDayOfWeek, String ttWeek, String ttAudience,
@@ -114,11 +120,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursorCourses.close();
         return tablesList;
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(db);
     }
 }
