@@ -43,6 +43,11 @@ public class Timetable implements Serializable {
     @Override
     public String toString()
     {
+        return String.format("Name: %s\nDay of week: %s\nWeek: %s\n", name, dayOfWeek, week);
+    }
+
+    public String getInfo()
+    {
         String result = String.format("Name: %s\nDay of week: %s\nWeek: %s\nAudience: %s\nBuilding: %s\nTime: %s\nTeacher: %s\n", name, dayOfWeek, week, audience, building, time, teacher);
         if (isOneTime)
             result += "Transferred";

@@ -7,6 +7,9 @@
     <item android:id="@+id/sort"
         android:title="Сортировка"
         android:onClick="sort"/>
+    <item android:id="@+id/up"
+        android:title="Up"
+        android:onClick="up"/>
     <item android:id="@+id/search"
         android:title="Поиск"
         android:icon="@drawable/searchicon"

@@ -14,7 +14,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures {
+        compose true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -28,6 +30,20 @@ android {
 }
 
 dependencies {
+
+//    // Integration with activities
+//    implementation 'androidx.activity:activity-compose:1.5.1'
+//    // Compose Material Design
+//    implementation 'androidx.compose.material:material:1.2.1'
+//    // Animations
+//    implementation 'androidx.compose.animation:animation:1.2.1'
+//    // Tooling support (Previews, etc.)
+//    implementation 'androidx.compose.ui:ui-tooling:1.2.1'
+//    // Integration with ViewModels
+//    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
+//    // UI Tests
+//    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.2.1'
+//    api 'com.google.android.material:material:1.1.0-alpha06'
 
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'androidx.appcompat:appcompat:1.5.1'

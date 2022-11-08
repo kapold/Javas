@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    tools:context=".AddFragment">
+    <data>
+        <variable
+            name="Card"
+            type="com.example.ninelab.ContactCard" />
+        <variable
+            name="CardViewModel"
+            type="com.example.ninelab.CardViewModel"/>
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:id="@+id/nameET"
+            android:hint="  Имя"
+            android:text="@={Card.Name}"
+            android:layout_margin="15dp"
+            android:layout_width="260dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="  Фамилия"
+            android:text="@={Card.SecondName}"
+            android:layout_margin="15dp"
+            android:layout_width="260dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="  Работа"
+            android:text="@={Card.Workplace}"
+            android:layout_margin="15dp"
+            android:layout_width="260dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="  Номер телефона"
+            android:text="@={Card.Phone}"
+            android:layout_margin="15dp"
+            android:inputType="phone"
+            android:layout_width="260dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="  EMail"
+            android:text="@={Card.URL}"
+            android:layout_margin="15dp"
+            android:layout_width="260dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/ImageCard"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center"
+            android:layout_margin="15dp" />
+
+        <Button
+            android:id="@+id/ChooseImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Фото из галереи"
+            android:backgroundTint="#FFC0CB"/>
+
+        <Button
+            android:onClick="@{(view)->CardViewModel.Insert(Card)}"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"
+            android:text="Сохранить Contact Card"
+            android:id="@+id/SaveButton"
+            android:layout_width="wrap_content"
+            android:backgroundTint="#FFC0CB"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</layout>

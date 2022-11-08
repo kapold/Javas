@@ -1,11 +1,19 @@
 package com.example.lw5_oop;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,9 +21,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,31 +42,71 @@ public class MainActivity extends AppCompatActivity {
         dbHandler = new DatabaseHelper(MainActivity.this);
 
         timetableList = new ArrayList<>();
-        listView = findViewById(R.id.main_LW);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
-                                    long id) {
-                TextView textView = (TextView) itemClicked;
-                String strText = textView.getText().toString(); // получаем текст нажатого элемента
+        recyclerView = findViewById(R.id.main_LW);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
+//                                    long id) {
+//                TextView textView = (TextView) itemClicked;
+//                String strText = textView.getText().toString(); // получаем текст нажатого элемента
+//
+//                timeTableItem = timetableList.get(position);
+//                info();
+//            }
+//        });
+        registerForContextMenu(recyclerView);
 
-                timeTableItem = timetableList.get(position);
+        TimetableAdapter.OnTableClickListener tableAdapter = new TimetableAdapter.OnTableClickListener() {
+            @Override
+            public void onTableClick(Timetable task, int position) {
+                timeTableItem = task;
                 info();
             }
-        });
-        registerForContextMenu(listView);
+        };
 
         try {
             timetableList = dbHandler.getTimetables();
-            ArrayAdapter<Timetable> adapter = new ArrayAdapter<Timetable>(this,
-                    android.R.layout.simple_list_item_1, timetableList);
-            listView.setAdapter(adapter);
+//            ArrayAdapter<Timetable> adapter = new ArrayAdapter<Timetable>(this,
+//                    android.R.layout.simple_list_item_1, timetableList);
+//            listView.setAdapter(adapter);
+            TimetableAdapter adapter = new TimetableAdapter(this, dbHandler.getTimetables(), tableAdapter);
+            recyclerView.setAdapter(adapter);
         } catch (Exception e) {}
+
+        // DRAWER
+        drawerLayout = findViewById(R.id.DrawerLayout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        NavigationView nav = findViewById(R.id.NavMenu);
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId()){
+                    case R.id.AppInfoDrawer:{
+                        Toast.makeText(MainActivity.this, "Версия: v.1.3\nСоздатель: Адамович Антон", Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                }
+                return true;
+            }
+        });
     }
     public List<Timetable> timetableList;
     Timetable timeTableItem;
-    ListView listView;
+    //ListView listView;
+    RecyclerView recyclerView;
     DatabaseHelper dbHandler;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if (actionBarDrawerToggle.onOptionsItemSelected(item))
+            return true;
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -131,9 +182,9 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             timetableList = dbHandler.getTimetables();
-            ArrayAdapter<Timetable> adapter = new ArrayAdapter<Timetable>(this,
-                    android.R.layout.simple_list_item_1, timetableList);
-            listView.setAdapter(adapter);
+//            ArrayAdapter<Timetable> adapter = new ArrayAdapter<Timetable>(this,
+//                    android.R.layout.simple_list_item_1, timetableList);
+//            listView.setAdapter(adapter);
         } catch (Exception e) {}
     }
 
@@ -144,9 +195,9 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             timetableList = dbHandler.getTimetables();
-            ArrayAdapter<Timetable> adapter = new ArrayAdapter<Timetable>(this,
-                    android.R.layout.simple_list_item_1, timetableList);
-            listView.setAdapter(adapter);
+//            ArrayAdapter<Timetable> adapter = new ArrayAdapter<Timetable>(this,
+//                    android.R.layout.simple_list_item_1, timetableList);
+//            listView.setAdapter(adapter);
         } catch (Exception e) {}
     }
 
@@ -177,9 +228,9 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) { Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show(); }
 
         try {
-            ArrayAdapter<Timetable> adapter = new ArrayAdapter<Timetable>(this,
-                    android.R.layout.simple_list_item_1, tables);
-            listView.setAdapter(adapter);
+//            ArrayAdapter<Timetable> adapter = new ArrayAdapter<Timetable>(this,
+//                    android.R.layout.simple_list_item_1, tables);
+//            listView.setAdapter(adapter);
         } catch (Exception e) { Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show(); }
     }
 }

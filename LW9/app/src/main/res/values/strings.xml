@@ -1,0 +1,6 @@
+<resources>
+
+    <string name="app_name">Lab9_OOP</string>
+    <string name="ListString">Все визитки</string>
+    <string name="AddString">Добавить визитку</string>
+</resources>

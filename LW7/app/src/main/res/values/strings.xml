@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">LW5_OOP</string>
+    <string name="app_name">Lab 8</string>
+    <string name="Close">Закрыть</string>
+    <string name="Open">Открыть</string>
     <array name="days">
         <item>Понедельник</item>
         <item>Вторник</item>
