@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
         // initialize the necessary libraries
         init();
-
         // restore the values from saved instance state
         restoreValuesFromBundle(savedInstanceState);
     }
@@ -144,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
         updateLocationUI();
     }
 
-
-
     private void updateLocationUI() {
         if (mCurrentLocation != null) {
             txtLocationResult.setText(
@@ -184,20 +181,16 @@ public class MainActivity extends AppCompatActivity {
     private void startLocationUpdates() {
         mSettingsClient
                 .checkLocationSettings(mLocationSettingsRequest)
-                .addOnSuccessListener(this, new OnSuccessListener<LocationSettingsResponse>() {
-                    @SuppressLint("MissingPermission")
-                    @Override
-                    public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
-                        Log.i(TAG, "All location settings are satisfied.");
+                .addOnSuccessListener(this, locationSettingsResponse -> {
+                    Log.i(TAG, "All location settings are satisfied.");
 
-                        Toast.makeText(getApplicationContext(), "Started location updates!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Started location updates!", Toast.LENGTH_SHORT).show();
 
-                        //noinspection MissingPermission
-                        mFusedLocationClient.requestLocationUpdates(mLocationRequest,
-                                mLocationCallback, Looper.myLooper());
+                    //noinspection MissingPermission
+                    mFusedLocationClient.requestLocationUpdates(mLocationRequest,
+                            mLocationCallback, Looper.myLooper());
 
-                        updateLocationUI();
-                    }
+                    updateLocationUI();
                 })
                 .addOnFailureListener(this, e -> {
                     int statusCode = ((ApiException) e).getStatusCode();

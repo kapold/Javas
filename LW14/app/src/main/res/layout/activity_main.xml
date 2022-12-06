@@ -31,11 +31,19 @@
         android:text="@string/get_last_location" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/update_freq"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
-        android:text="Location updates will be received only when app is foreground" />
+        android:text="Частота обновления => 10 сек" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="Обновления местоположения будут получены только когда приложения находится на переднем плане!" />
 
     <TextView
         android:id="@+id/location_result"
